@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+     <title>2TIW Devops - Calculator</title>
+     <link rel="stylesheet" href="assets/bootstrap.min.css">
+     <link rel="stylesheet" id="styleSheet" href="">
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // nakijken => moet ook nog i/d jenkins pipeline 
+            var environment = process.env.ENVIRONMENT; 
+            // Dynamische keuze uit de environment van de juiste .css file
+            var styleSheetLink = document.getElementById('styleSheet');
+            styleSheetLink.href = environment === 'production' ? 'Prod.style.css' : 'Test.style.css';
+        });
+    </script>
+    </head>
+    <body>
+    <h1>2TINDevOps - Calculator</h1><hr/>
+        <form id="form">
+            <div class="form-group">
+                <label for="number1">Number 1</label>
+                <input type="text" class="form-control" id="number1" name="number1" required>
+            </div>
+            <div class="form-group">
+                <label for="number2">Number 2</label>
+                <input type="text" class="form-control" id="number2" name="number2" required>
+            </div>
+            <button type="button" class="btn btn-primary" name="add" id="add">Add</button>
+            <button type="button" class="btn btn-primary" name="subtract" id="subtract">Subtract</button>
+            <button type="button" class="btn btn-primary" name="multiply" id="multiply">multiply</button>
+            <button type="button" class="btn btn-primary" name="divide" id="divide">divide</button>
+        </form>
+        <h2 id="result"></h2>
+        <script src="frontend.js"></script>
+    </body>
+</html>
